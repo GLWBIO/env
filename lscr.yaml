@@ -1,0 +1,17 @@
+services:
+  certbot:
+    image: lscr.io/linuxserver/certbot:latest
+    container_name: certbot
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - URL=x.com
+      - VALIDATION=cloudflare
+      - DUCKDNSTOKEN=TOKEN
+      - EMAIL=your-email@gmail.com
+      - STAGING=false
+    volumes:
+      - ./config:/config
+    restart: unless-stopped
