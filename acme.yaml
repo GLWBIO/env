@@ -1,0 +1,10 @@
+services:
+  acme-sh:
+    image: neilpang/acme.sh
+    container_name: acme-sh
+    restart: unless-stopped
+    command: daemon
+    environment:
+      - Cloudflare_Token=TOKEN
+    volumes:
+      - ./acme:/acme.sh
